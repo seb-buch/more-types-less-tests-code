@@ -12,7 +12,7 @@ from src.examples.meeting.framework import (
 
 
 @pytest.mark.parametrize(
-    "input_data,raw_expected",
+    ("input_data", "raw_expected"),
     [
         # Test case 1: Small in-person meeting
         (

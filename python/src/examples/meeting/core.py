@@ -29,10 +29,10 @@ class CorporateContact:
 
         try:
             firstname, lastname = username.split(".", maxsplit=1)
-        except ValueError:
+        except ValueError as err:
             raise ValueError(
                 f"Username must be 'firstname.lastname', '{username}' is not valid."
-            )
+            ) from err
 
         self.firstname = firstname.capitalize()
         self.lastname = lastname.upper()
@@ -73,7 +73,8 @@ class InPersonMeeting:
             case "Amphitheater":
                 if n_guests > 200:
                     raise ValueError(
-                        f"max capacity for the amphitheater is 200 ({n_guests} guests required)"
+                        "max capacity for the amphitheater is 200"
+                        + f" ({n_guests} guests required)"
                     )
             case _:
                 assert_never(meeting_room)

@@ -13,7 +13,7 @@ from pydantic import (
 )
 from pydantic import ValidationError as PydanticValidationError
 
-from src.examples.meeting.core import MeetingRoom, VideoPlatform, ValidationError
+from src.examples.meeting.core import MeetingRoom, ValidationError, VideoPlatform
 
 
 # Common schema
@@ -57,7 +57,6 @@ class OnlineMeetingSchema(CommonSchema):
 MeetingFramework = Annotated[
     Union[InPersonMeetingSchema, OnlineMeetingSchema], "Meeting framework data model"
 ]
-
 
 
 BAD_RAW_OBJECT = ValidationError("Raw object is not valid")

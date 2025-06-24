@@ -1,4 +1,4 @@
-from typing import assert_never, Any
+from typing import Any, assert_never
 
 from src.examples.meeting.core import (
     InPersonMeeting,

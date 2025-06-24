@@ -93,7 +93,7 @@ def main() -> None:
     make_quacker_quack(chatty_duck)  # OK
     make_quacker_quack(rubber_duck)  # OK
     make_quacker_quack(shy_duck)  # OK (structural typing)
-    # make_quacker_quack(not_quacker)  # raises AttributeError - mypy: incompatible types
+    # make_quacker_quack(not_quacker) # raises AttributeError - mypy: incompatible types
 
     make_stuff_quacks_bad(duck)  # OK
     make_stuff_quacks_bad(chatty_duck)  # OK

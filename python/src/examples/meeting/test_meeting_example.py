@@ -1,5 +1,6 @@
-import pytest
 from typing import Any, Dict, Tuple, Union
+
+import pytest
 
 from src.examples.meeting.core import (
     CorporateContact,
@@ -7,11 +8,11 @@ from src.examples.meeting.core import (
     Meeting,
     ValidationError,
 )
+from src.examples.meeting.framework import MeetingFramework
 from src.examples.meeting.meeting_example import (
     create_meeting_from_framework_validated,
     create_meeting_from_raw,
 )
-from src.examples.meeting.framework import MeetingFramework
 
 
 def valid_corporate_contact(email: str) -> CorporateContact:
@@ -100,7 +101,6 @@ class TestCreateMeetingFromFrameworkValidated:
         ],
     )
     def test_valid_framework_objects(self, input_data: Dict[str, Any]) -> None:
-        """Test that valid framework objects are correctly converted to Meeting objects."""
         # Create a MeetingFramework object from the input data
         if input_data["type"] == "in_person":
             from src.examples.meeting.framework import InPersonMeetingSchema
@@ -131,7 +131,7 @@ class TestCreateMeetingFromFrameworkValidated:
         assert isinstance(result.contact, CorporateContact)
 
     @pytest.mark.parametrize(
-        "input_data,expected_message",
+        ("input_data", "expected_message"),
         [
             # Test case 1: Invalid email domain
             (
@@ -225,7 +225,7 @@ class TestCreateMeetingFromFrameworkValidated:
 
 class TestCreateMeetingFromRaw:
     @pytest.mark.parametrize(
-        "input_data,expected",
+        ("input_data", "expected"),
         [
             # Test case 1: In-person meeting
             (
@@ -287,7 +287,7 @@ class TestCreateMeetingFromRaw:
         assert isinstance(result.contact, CorporateContact)
 
     @pytest.mark.parametrize(
-        "input_data,expected_message",
+        ("input_data", "expected_message"),
         [
             # Test case 1: Missing title
             (
@@ -327,7 +327,6 @@ class TestCreateMeetingFromRaw:
 
 class TestBuildMessage:
     def test_build_message(self) -> None:
-        """Test that the build_message function correctly builds a confirmation message."""
         # Create a meeting
         meeting = InPersonMeeting(
             title="Team Meeting",
