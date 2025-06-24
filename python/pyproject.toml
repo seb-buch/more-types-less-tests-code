@@ -1,0 +1,20 @@
+[project]
+name = "examples"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic[email]>=2.11.7",
+]
+
+[dependency-groups]
+dev = [
+    "black",
+    "isort>=6.0.1",
+    "mypy",
+    "pytest>=8.3.5",
+    "ruff",
+]
+
+[tool.uv]
+default-groups = ["dev"]
