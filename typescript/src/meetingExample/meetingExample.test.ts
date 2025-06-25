@@ -249,6 +249,6 @@ describe("buildRoomBookingConfirmationMessage", () => {
     }
 
     const message = buildMessage(meeting);
-    expect(message).toBe("John DOE booked Room-101");
+    expect(message).toBe("John booked Room-101");
   });
 });
