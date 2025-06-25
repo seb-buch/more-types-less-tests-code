@@ -2,7 +2,6 @@ package sbuch.presentation.examples;
 
 import java.util.logging.Logger;
 
-
 public class DoorExample {
     private static final Logger LOGGER = Logger.getLogger(DoorExample.class.getName());
 
@@ -18,7 +17,7 @@ public class DoorExample {
 
     private static void logDoorState(Door door) {
         switch (door) {
-            case OpenDoor _ -> LOGGER.info("Open Door");
+            case OpenDoor ignored -> LOGGER.info("Open Door");
             case ClosedDoor(boolean isLocked) -> {
                 if (isLocked) {
                     LOGGER.info("Closed and locked Door");

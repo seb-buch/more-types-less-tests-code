@@ -39,7 +39,7 @@ public class MeetingFrameworkDeserializer {
 
             // If validation passes, return a success result
             return ValidationResult.success(deserialized);
-        } catch (IOException _) {
+        } catch (IOException ignored) {
             return validationError();
         }
     }

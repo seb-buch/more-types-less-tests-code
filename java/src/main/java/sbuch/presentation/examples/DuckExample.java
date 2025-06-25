@@ -16,15 +16,15 @@ public class DuckExample {
 
         makeDuckQuack(duck); // OK
         makeDuckQuack(babyDuck); // OK
-//        makeDuckQuack(rubberDuck); // incompatible types
-//        makeDuckQuack(freckledDuck); // incompatible types
-//        makeDuckQuack(notQuacker); // incompatible types
+        // makeDuckQuack(rubberDuck); // incompatible types
+        // makeDuckQuack(freckledDuck); // incompatible types
+        // makeDuckQuack(notQuacker); // incompatible types
 
         makeQuackerQuack(duck); // OK
         makeQuackerQuack(babyDuck); // OK
         makeQuackerQuack(rubberDuck); // OK
-//        makeQuackerQuack(freckledDuck); // incompatible types
-//        makeQuackerQuack(notQuacker); // incompatible types
+        // makeQuackerQuack(freckledDuck); // incompatible types
+        // makeQuackerQuack(notQuacker); // incompatible types
 
         makeStuffQuack(duck); // OK
         makeStuffQuack(babyDuck); // OK
@@ -46,14 +46,14 @@ public class DuckExample {
         Method quackMethod;
         try {
             quackMethod = maybeQuacker.getClass().getMethod("quack");
-        } catch (NoSuchMethodException _) {
+        } catch (NoSuchMethodException ignored) {
             LOGGER.warning(maybeQuacker.getClass().getName() + " is not a Quacker");
             return;
         }
 
         try {
             LOGGER.info("Verified quacker says: " + quackMethod.invoke(maybeQuacker));
-        } catch (InvocationTargetException | IllegalAccessException _) {
+        } catch (InvocationTargetException | IllegalAccessException ignored) {
             LOGGER.severe(maybeQuacker.getClass().getName() + " is an unknown type of quacker");
         }
     }
