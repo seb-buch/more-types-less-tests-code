@@ -9,11 +9,7 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": [
-        "charliermarsh.ruff",
-        "ms-python.isort",
-        "tamasfe.even-better-toml"
-      ]
+      "extensions": ["charliermarsh.ruff", "ms-python.mypy-type-checker"]
     }
   }
 
