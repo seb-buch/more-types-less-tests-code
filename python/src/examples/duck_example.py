@@ -49,7 +49,7 @@ def make_stuff_quacks_bad(stuff: Any) -> None:
     logger.info(f"Unverified stuff says: {stuff.quack()}!")
 
 
-# Uses introspection with "Easier to Ask Forgiveness than Permission"-style
+# With static analysis
 def make_stuff_quacks(stuff: object) -> None:
     try:
         logger.info(f"Verified stuff says: {stuff.quack()}!")
