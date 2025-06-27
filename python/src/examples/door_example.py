@@ -9,11 +9,11 @@ class OpenDoor:
 
 
 @dataclass
-class CloseDoor:
+class ClosedDoor:
     is_locked: bool
 
 
-type Door = OpenDoor | CloseDoor
+type Door = OpenDoor | ClosedDoor
 
 
 def log_door_state(door: Door) -> None:
@@ -27,8 +27,8 @@ def log_door_state(door: Door) -> None:
 if __name__ == "__main__":
     # Usage
     door1: Door = OpenDoor()
-    door2: Door = CloseDoor(is_locked=False)
-    door3: Door = CloseDoor(is_locked=True)
+    door2: Door = ClosedDoor(is_locked=False)
+    door3: Door = ClosedDoor(is_locked=True)
 
     log_door_state(door1)
     log_door_state(door2)

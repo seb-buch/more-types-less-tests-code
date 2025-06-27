@@ -18,12 +18,12 @@ interface OpenDoor {
   state: "open";
 }
 
-interface CloseDoor {
-  state: "closed",
-  isLocked: boolean
+interface ClosedDoor {
+  state: "closed";
+  isLocked: boolean;
 }
 
-type Door = OpenDoor | CloseDoor
+type Door = OpenDoor | ClosedDoor;
 
 // Usage
 const door1: Door = { state: "open" };
