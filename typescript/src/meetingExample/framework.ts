@@ -22,7 +22,7 @@ const inPersonMeetingSpecificSchema = z.object({
           return "Unknown";
       }
     },
-    z.enum(MeetingRooms),
+    z.enum(MeetingRooms)
   ),
   nGuests: z.int().gt(0),
 });
@@ -32,11 +32,13 @@ const onlineMeetingSpecificSchema = z.object({
   videoPlatform: z.enum(videoPlatforms),
   videoLink: z.url(),
 });
+
 export const MeetingFrameworkSchema = z.intersection(
   commonSchema,
   z.discriminatedUnion("type", [
     inPersonMeetingSpecificSchema,
     onlineMeetingSpecificSchema,
-  ]),
+  ])
 );
+
 export type MeetingFramework = z.infer<typeof MeetingFrameworkSchema>;

@@ -78,39 +78,39 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO)
 
     duck = Duck()
-    chatty_duck = BabyDuck()
+    baby_duck = BabyDuck()
     rubber_duck = RubberDuck()
-    shy_duck = FreckledDuck()
+    freckled_duck = FreckledDuck()
     not_quacker = Dog()
 
     make_duck_quack(duck)  # OK
-    make_duck_quack(chatty_duck)  # OK
+    make_duck_quack(baby_duck)  # OK
     make_duck_quack(rubber_duck)  # OK (duck typing) - mypy: incompatible types
-    make_duck_quack(shy_duck)  # OK (duck typing) - mypy: incompatible types
+    make_duck_quack(freckled_duck)  # OK (duck typing) - mypy: incompatible types
     # make_duck_quack(not_quacker)  # raises AttributeError - mypy: incompatible types
 
     make_quacker_quack(duck)  # OK
-    make_quacker_quack(chatty_duck)  # OK
+    make_quacker_quack(baby_duck)  # OK
     make_quacker_quack(rubber_duck)  # OK
-    make_quacker_quack(shy_duck)  # OK (structural typing)
-    # make_quacker_quack(not_quacker) # raises AttributeError - mypy: incompatible types
+    make_quacker_quack(freckled_duck)  # OK (structural typing)
+    # make_quacker_quack(not_quacker)  # raises AttributeError - mypy: incompatible types
 
     make_stuff_quacks_bad(duck)  # OK
-    make_stuff_quacks_bad(chatty_duck)  # OK
+    make_stuff_quacks_bad(baby_duck)  # OK
     make_stuff_quacks_bad(rubber_duck)  # OK
-    make_stuff_quacks_bad(shy_duck)  # OK
+    make_stuff_quacks_bad(freckled_duck)  # OK
     # make_stuff_quacks_bad(not_quacker)  # raises AttributeError - mypy says OK!
 
     make_stuff_quacks_lbyl(duck)  # OK
-    make_stuff_quacks_lbyl(chatty_duck)  # OK
+    make_stuff_quacks_lbyl(baby_duck)  # OK
     make_stuff_quacks_lbyl(rubber_duck)  # OK
-    make_stuff_quacks_lbyl(shy_duck)  # OK
+    make_stuff_quacks_lbyl(freckled_duck)  # OK
     make_stuff_quacks_lbyl(not_quacker)  # OK with warning
 
     make_stuff_quacks_eafp(duck)  # OK
-    make_stuff_quacks_eafp(chatty_duck)  # OK
+    make_stuff_quacks_eafp(baby_duck)  # OK
     make_stuff_quacks_eafp(rubber_duck)  # OK
-    make_stuff_quacks_eafp(shy_duck)  # OK
+    make_stuff_quacks_eafp(freckled_duck)  # OK
     make_stuff_quacks_eafp(not_quacker)  # OK with warning
 
 

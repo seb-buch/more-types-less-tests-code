@@ -3,7 +3,7 @@ interface Quacker {
 }
 
 // True quackers
-class Duck {
+class Duck implements Quacker {
   public quack(): string {
     return "QUACK";
   }
@@ -59,20 +59,20 @@ function makeStuffQuack(stuff: unknown) {
 }
 
 const duck = new Duck();
-const chattyDuck = new BabyDuck();
+const babyDuck = new BabyDuck();
 const rubberDuck = new RubberDuck();
-const shyDuck = new FreckledDuck();
+const freckledDuck = new FreckledDuck();
 const notQuacker = new Dog();
 
 makeDuckQuack(duck); // OK
-makeDuckQuack(chattyDuck); // OK
+makeDuckQuack(babyDuck); // OK
 makeDuckQuack(rubberDuck); // OK
-makeDuckQuack(shyDuck); // OK
+makeDuckQuack(freckledDuck); // OK
 
 // makeDuckQuack(notQuacker); // TS2345: Argument of type 'Dog' is not assignable to parameter of type 'Duck'.
 
 makeStuffQuack(duck); // OK
-makeStuffQuack(chattyDuck); // OK
+makeStuffQuack(babyDuck); // OK
 makeStuffQuack(rubberDuck); // OK
-makeStuffQuack(shyDuck); // OK
+makeStuffQuack(freckledDuck); // OK
 makeStuffQuack(notQuacker); // OK with warning
