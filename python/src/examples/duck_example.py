@@ -49,27 +49,10 @@ def make_stuff_quacks_bad(stuff: Any) -> None:
     logger.info(f"Unverified stuff says: {stuff.quack()}!")
 
 
-# Uses introspection with  "Look Before You Leap"-style
-def make_stuff_quacks_lbyl(stuff: object) -> None:
-    if not hasattr(stuff, "quack"):
-        logger.warning(f"{type(stuff).__name__} is not a quacker!")
-        return
-
-    quack_method = stuff.quack
-    if (
-        not inspect.ismethod(quack_method)
-        or len(inspect.signature(quack_method).parameters) > 1
-    ):
-        logger.warning(f"{type(stuff).__name__} is a weird quacker!")
-        return
-
-    logger.info(f"Verified stuff says: {quack_method()}!")
-
-
 # Uses introspection with "Easier to Ask Forgiveness than Permission"-style
-def make_stuff_quacks_eafp(stuff: object) -> None:
+def make_stuff_quacks(stuff: object) -> None:
     try:
-        logger.info(f"Verified stuff says: {stuff.quack()}!")  # type: ignore
+        logger.info(f"Verified stuff says: {stuff.quack()}!")
     except AttributeError:
         logger.warning(f"{type(stuff).__name__} is not a quacker!")
 
@@ -101,17 +84,11 @@ def main() -> None:
     make_stuff_quacks_bad(freckled_duck)  # OK
     # make_stuff_quacks_bad(not_quacker)  # raises AttributeError - mypy says OK!
 
-    make_stuff_quacks_lbyl(duck)  # OK
-    make_stuff_quacks_lbyl(baby_duck)  # OK
-    make_stuff_quacks_lbyl(rubber_duck)  # OK
-    make_stuff_quacks_lbyl(freckled_duck)  # OK
-    make_stuff_quacks_lbyl(not_quacker)  # OK with warning
-
-    make_stuff_quacks_eafp(duck)  # OK
-    make_stuff_quacks_eafp(baby_duck)  # OK
-    make_stuff_quacks_eafp(rubber_duck)  # OK
-    make_stuff_quacks_eafp(freckled_duck)  # OK
-    make_stuff_quacks_eafp(not_quacker)  # OK with warning
+    make_stuff_quacks(duck)  # OK
+    make_stuff_quacks(baby_duck)  # OK
+    make_stuff_quacks(rubber_duck)  # OK
+    make_stuff_quacks(freckled_duck)  # OK
+    make_stuff_quacks(not_quacker)  # OK with warning
 
 
 if __name__ == "__main__":
